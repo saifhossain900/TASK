@@ -4,20 +4,28 @@ using namespace std;
 
 int main()
 {
-    int array_size;
-    cin >> array_size;
-    int* ptr = new int[array_size];
-    for(int i=0 ; i<array_size ; i++)
-    {
-        cin >> ptr[i];
+    int row, column;
+    cin >> row >> column;
+
+    int **ptr = new int *[row];
+
+    for (int i = 0; i < row; i++) {
+        ptr[i] = new int[column];
     }
-    for (int j=0 ; j<array_size ; j++)
-    {
-        cout << ptr[j] << " ";
+
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            cin >> ptr[i][j];
+        }
     }
-    cout << endl;
+
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            cout << ptr[i][j] << " ";
+        }
+        cout << endl;
+    }
 
     delete[] ptr;
-
     return 0;
 }
